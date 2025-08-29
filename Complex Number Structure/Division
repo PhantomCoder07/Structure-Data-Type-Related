@@ -1,0 +1,24 @@
+#include <stdio.h>
+struct complex
+{
+    float real,imaginary;
+};
+int main()
+{
+    struct complex n1,n2,result1,result2;
+    printf ("Enter 1st complex number with imaginary part: ");
+    scanf ("%f %f",&n1.real,&n1.imaginary);
+    printf ("Enter 2nd complex number with imaginary part: ");
+    scanf ("%f %f",&n2.real,&n2.imaginary);
+    result1.real=(n1.real*n2.real)+((n1.imaginary*(n2.imaginary)*-1)*-1);
+    result1.imaginary=(n1.real*(n2.imaginary)*-1)+(n2.real*n1.imaginary);
+    result2.real=result1.real/((n2.real*n2.real)+(n2.imaginary*n2.imaginary));
+    result2.imaginary=result1.imaginary/((n2.real*n2.real)+(n2.imaginary*n2.imaginary));
+    if (result2.imaginary>0.0)
+        printf ("The sum of two complex number is: %.2f+%.2fi",result2.real,result2.imaginary);
+    else if (result2.imaginary<0.0)
+        printf ("The sum of two complex number is: %.2f%.2fi",result2.real,result2.imaginary);
+    else
+        printf ("The sum of two complex number is: %.2f",result2.real);
+    return 0;
+}
