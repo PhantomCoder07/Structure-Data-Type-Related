@@ -1,0 +1,60 @@
+#include <stdio.h>
+struct stu
+{
+    char sfname[20],ssname[20];
+    int sid;
+    float smarks[5];
+};
+int main()
+{
+    int i,j,n;
+    printf ("Enter student's number: ");
+    scanf ("%d",&n);
+    struct stu s[n];
+    for (i=0; i<n; i++)
+    {
+        printf ("\nEnter info of student %d :\n",i+1);
+        printf ("Enter student's first name : ");
+        scanf ("%s",s[i].sfname);
+        fflush (stdin);
+        printf ("Enter student's last name  : ");
+        scanf ("%s",s[i].ssname);
+        fflush (stdin);
+        printf ("Enter student's ID         : ");
+        scanf ("%d",&s[i].sid);
+        printf ("Enter student's marks of 5 subjects:\n");
+        for (j=0; j<5; j++)
+        {
+            scanf ("%f",&s[i].smarks[j]);
+        }
+    }
+    printf ("\n\n----------Students Record------------\n\n");
+    for (i=0; i<n; i++)
+    {
+        printf ("Student %d     :\n",i+1);
+        printf ("Student's name : %s %s\n",s[i].sfname,s[i].ssname);
+        printf ("Student's ID   : %d\n",s[i].sid);
+        printf ("Student's marks:\n");
+        for (j=0; j<5; j++)
+        {
+            if (s[i].smarks[j]>=80 && s[i].smarks[j]<=100)
+                printf ("%.2f; GPA: A+\n",s[i].smarks[j]);
+            else if (s[i].smarks[j]>=70 && s[i].smarks[j]<=79)
+                printf ("%.2f; GPA: A\n",s[i].smarks[j]);
+            else if (s[i].smarks[j]>=60 && s[i].smarks[j]<=69)
+                printf ("%.2f; GPA: A-\n",s[i].smarks[j]);
+            else if (s[i].smarks[j]>=50 && s[i].smarks[j]<=59)
+                printf ("%.2f; GPA: B\n",s[i].smarks[j]);
+            else if (s[i].smarks[j]>=40 && s[i].smarks[j]<=49)
+                printf ("%.2f; GPA: C\n",s[i].smarks[j]);
+            else if (s[i].smarks[j]>=33 && s[i].smarks[j]<=39)
+                printf ("%.2f; GPA: D\n",s[i].smarks[j]);
+            else if (s[i].smarks[j]>=0 && s[i].smarks[j]<=32)
+                printf ("%.2f; GPA: F\n",s[i].smarks[j]);
+            else
+                printf ("Mark %.2f is Invalid\n",s[i].smarks[j]);
+        }
+        printf ("\n");
+    }
+    return 0;
+}
